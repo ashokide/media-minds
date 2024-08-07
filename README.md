@@ -20,20 +20,36 @@ cd media-minds
 ```
 > Note: Update the env in backend directory `GPT4V_KEY` and `GPT4V_ENDPOINT`
 
-Start Backend
+Move to Backend
 ```
 cd backend
+```
+
+Install NPM Packages
+```
 npm i
+```
+
+Run Backend Server
+```
 npm run dev
 ```
 
-Start Frontend
+Move to Frontend
 ```
-cd frontend
+cd ../frontend
+```
+
+Install NPM Packages
+```
 npm i
+```
+
+Run Frontend Server
+```
 npm run dev
 ```
 
 #### To Access
-Frontend: http://localhost:3000/ 
-Backend : http://localhost:8000/
+* Frontend: http://localhost:3000/ 
+* Backend : http://localhost:8000/
