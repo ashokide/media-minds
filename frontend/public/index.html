@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Minds</title>
+    <!-- Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+      integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/loader.css" />
+    <link rel="stylesheet" href="./styles/success.css" />
+  </head>
+
+  <body>
+    <!-- Body Container -->
+    <div class="container-fluid">
+      <!-- Main Container -->
+      <div class="px-4 py-5 my-5 text-center" id="main-container">
+        <img
+          class="d-block mx-auto mb-4"
+          src="./images/mediaminds-logo.png"
+          alt=""
+          width="100"
+          height="100"
+        />
+        <h1 class="display-5 fw-bold text-body-emphasis">
+          Welcome to Media Minds
+        </h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">
+            Unlock the hidden potential of your ad campaigns! At Media Minds,
+            our AI technology transforms your ad performance data into
+            beautiful, insightful slides that tell a compelling story. Perfect
+            for presentations, strategy meetings, or just keeping your finger on
+            the pulse of your campaigns. Ready to see your data in a whole new
+            light?<br />
+            Say goodbye to tedious data analysis and hello to actionable
+            insights that drive results. Let's make your data shine!
+          </p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button
+              type="button"
+              class="btn btn-outline-danger btn-lg px-4 gap-3"
+              id="select-date-range-btn"
+            >
+              Get Started
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Generate Presentation Container -->
+      <div
+        class="px-4 py-5 my-5 text-center"
+        id="generate-presentation-container"
+      >
+        <img
+          class="d-block mx-auto mb-4"
+          src="./images/mediaminds-logo.png"
+          alt=""
+          width="100"
+          height="100"
+        />
+        <div class="col-lg-6 mx-auto">
+          <div class="mb-3">
+            <label for="select-date-range" class="form-label display-5"
+              >Set Your Analysis Period</label
+            >
+            <p class="lead mb-4">
+              Pick the timeframe for your ad campaigns. Our advanced AI will
+              generate comprehensive slides, providing you with valuable
+              performance insights.
+            </p>
+            <select class="form-select" id="select-date-range">
+              <option selected>Choose</option>
+              <option value="last_month">Last Month</option>
+              <option value="last_quarter">Last Quarter</option>
+              <option value="custom_range">Custom Range</option>
+            </select>
+          </div>
+          <div
+            class="row form-group"
+            id="date-range-fields"
+            style="display: none"
+          >
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="from-datepicker" class="form-label"
+                  >From Date</label
+                >
+                <div class="input-group date" id="from-datepicker">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="from-datepicker-field"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="to-datepicker" class="form-label">To Date</label>
+                <div class="input-group date" id="to-datepicker">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="to-datepicker-field"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button
+              type="button"
+              class="btn btn-outline-danger btn-lg px-4 gap-3"
+              id="generate-presentation-btn"
+            >
+              Generate Slides
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loader -->
+
+      <div class="px-4 py-5 my-5 text-center" id="loader-container">
+        <img
+          class="d-block mx-auto mb-4"
+          src="./images/mediaminds-logo.png"
+          alt=""
+          width="100"
+          height="100"
+        />
+        <h1 class="display-5 fw-bold text-body-emphasis">
+          Crafting Your Insights
+        </h1>
+        <div class="col-lg-6 mx-auto my-auto px-4">
+          <main id="loader">
+            <div class="pencil">
+              <div class="pencil__ball-point"></div>
+              <div class="pencil__cap"></div>
+              <div class="pencil__cap-base"></div>
+              <div class="pencil__middle"></div>
+              <div class="pencil__eraser"></div>
+            </div>
+            <div class="line"></div>
+          </main>
+          <h5 id="generating-text">
+            Sit tight! Media Minds' AI is processing your ad data to deliver
+            insightful, visually appealing slides. This won’t take long.
+          </h5>
+        </div>
+      </div>
+
+      <!-- Presentation Download Container -->
+      <div
+        class="px-4 py-5 my-5 text-center"
+        id="presentation-generated-container"
+      >
+        <img
+          class="d-block mx-auto mb-4"
+          src="./images/mediaminds-logo.png"
+          alt=""
+          width="100"
+          height="100"
+        />
+        <h1 class="display-5 fw-bold text-body-emphasis">
+          Your Slides Are Ready!
+        </h1>
+        <svg
+          class="checkmark"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 52 52"
+        >
+          <circle
+            class="checkmark__circle"
+            cx="26"
+            cy="26"
+            r="25"
+            fill="none"
+          />
+          <path
+            class="checkmark__check"
+            fill="none"
+            d="M14.1 27.2l7.1 7.2 16.7-16.8"
+          />
+        </svg>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">
+            <b>Success!</b> Your personalized ad performance slides are ready
+            for download. Get your insights and boost your ad strategies now.
+          </p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button
+              type="button"
+              class="btn btn-outline-danger btn-lg px-4 gap-3"
+              id="download-slides-btn"
+            >
+              Download Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="container fixed-bottom">
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item">
+              <a class="nav-link px-2 text-body-secondary" id="home-btn-link"
+                >Home</a
+              >
+            </li>
+          </ul>
+          <p class="text-center text-body-secondary">
+            Copyrights &copy; 2024; Designed by MediaMinds
+          </p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Javascript Code -->
+
+    <!-- jQuery and jQuery UI JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <!-- Bootstrap Code -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"
+      integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.rawgit.com/eligrey/FileSaver.js/5ed507ef8aa53d8ecfea96d96bc7214cd2476fd2/FileSaver.min.js"></script>
+
+    <script src="./js/app.js"></script>
+  </body>
+</html>
